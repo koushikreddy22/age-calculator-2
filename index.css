@@ -1,0 +1,60 @@
+body{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #2782e3;
+}
+.form-container{
+    width:500px;
+}
+h1{
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    height: 40px;
+    background-color: white;
+    color:navy
+}
+.age-container{
+    margin-top: -21px;
+    display: flex;
+    width: 500px;
+    align-items: center;
+    justify-content: space-around;
+    height:150px ;
+    background-color: #eeeeee;
+}
+input{
+    width:80px;
+    height: 35px;
+    border-color: #2782e3;
+}
+.age{
+    display: flex;
+    row-gap: 3px;
+    color: #2782e3;
+    flex-direction: column;
+}
+input::placeholder{
+    padding-left: 10px;
+}
+.submit{
+    display: flex;
+    justify-content: center;
+    background-color: #eeeeee;
+    height: 120px;
+    flex-direction: column;
+    align-items: center;
+    border-bottom-left-radius: 15px;
+   border-bottom-right-radius: 15px;
+}
+button{
+    width: 100px;
+    height: 35px;
+}
+#err-output{
+    margin-top: 30px;
+    color: blue;
+}

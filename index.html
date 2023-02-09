@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css"/>
+    <title>Document</title>
+</head>
+<body>
+    <div class="main-container">
+        <h1>Age Calculator</h1>
+        <div class="form-container">
+            <div class="age-container">
+                <div class="age">
+                    <Label>Date</Label>
+                    <input id="date"  type="text" placeholder="DD"/>
+                </div>
+                <div class="age">
+                    <Label>Month</Label>
+                    <input id="month" type="text" placeholder="MM"/>
+                </div>
+                <div  class="age">
+                    <Label>Year</Label>
+                    <input id="year" type="text" placeholder="YYYY"/>
+                </div>
+            </div>
+            <div class="submit">
+                <button onclick="handleSubmit()">Submit</button>
+            <div id="err-output"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function check(dd,mm,yyyy){
+            dd=parseInt(dd.value)
+            mm=parseInt(mm.value)
+            yyyy=parseInt(yyyy.value)
+            let err="Please enter Valid Input date for "
+            let arr=[]
+            if(!dd || dd<1 || dd>31){
+                arr.push("day")
+            }
+            if(!mm || mm>12 || mm<1){
+               arr.push("month")
+            }
+            if(!yyyy || yyyy>curryear){
+                arr.push("year")
+            }
+            for(let i=0;i<arr.length;i++){
+                if(i>0 && i==arr.length-1){
+                    err=err+arr[i]
+                }else{
+                    err=err+arr[i]+", "
+                }
+            }
+            message.innerText=err
+            if(dd && mm && yyyy){
+                let days=currday-dd
+                if(days<0){
+                    days=days*(-1)
+                }
+                let months=currmonth-mm
+                console.log(months)
+                if(months<0){
+                    months=months*(-1)
+                }
+                let years =(curryear-yyyy)
+                message.innerText=`your age is ${days} days, ${months} months, ${years} years.`
+
+            }
+        }
+        var message=document.getElementById('err-output')
+        var date=document.getElementById('date')
+        var month=document.getElementById('month')
+        var year=document.getElementById("year")
+        let currdate=Date().split(" ")
+        let currday=currdate[2]
+        let currmonth=currdate[1]
+        let curryear=currdate[3]
+        console.log(currmonth)
+        let mon=["jan","feb","mar","april","may","jun","jul","aug","sep","oct","nov","dec"]
+        currmonth=mon.indexOf(currmonth)+1
+        function handleSubmit(){
+            check(date,month,year)
+        }
+    </script>
+</body>
+</html>
